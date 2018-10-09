@@ -1,0 +1,55 @@
+<nb-layout>
+	<nb-layout-header fixed>Threat Data Map</nb-layout-header>
+	<nb-layout-column>
+		<div class="row">
+      <div class="col-12">
+        <nb-card>
+          <nb-card-header>
+            Cyber solutions
+          </nb-card-header>
+          <nb-card-body>
+            <threat-map [geoData]="mapData" [threats]="threats"></threat-map>
+          </nb-card-body>
+        </nb-card>
+      </div>
+			<div class="col-6">
+				<nb-card>
+          <nb-card-header>List of threats</nb-card-header>
+					<nb-card-body>
+						<table class="table table-striped">
+							<tbody>
+								<tr>
+									<th>Category</th>
+									<th>Count</th>
+								</tr>
+								<tr *ngFor="let category of virus">
+									<td class="px-3">
+										<small>
+                    <strong>{{category}}</strong>
+                    </small>
+                  </td>
+                  <td><span>{{categories[category]}}</span></td>
+                 </tr>
+              </tbody>
+            </table>
+          </nb-card-body>
+        </nb-card>
+    </div>
+    <div class="col-6">
+      <nb-card>
+        <nb-card-header>D3 Chart</nb-card-header>
+          <nb-card-body>
+            Stacked chart
+            <div id="bar-chart">
+              <svg width="100%">
+                <g>
+                  <!-- <rect [width]="width" *ngFor="let bar of bars" [attr.x]="bar.x" [attr.y]="bar.y"></rect> -->
+                </g>
+              </svg>
+            </div>
+          </nb-card-body>
+        </nb-card>
+    </div>
+  </div>
+  </nb-layout-column>
+</nb-layout>
